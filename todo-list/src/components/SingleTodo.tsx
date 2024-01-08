@@ -1,34 +1,45 @@
 import { FC, useContext } from 'react';
-import { Alltasks } from '../types/types';
 import { Tasking } from '../context/TaskProvider';
-const SingleTodo: FC<Alltasks> = ({ todo, id, isDone }) => {
+import { Draggable } from 'react-beautiful-dnd';
+const SingleTodo: FC<{
+  todo: string;
+  id: number;
+  isDone: boolean;
+  index: number;
+}> = ({ todo, id, isDone, index }) => {
   const { dispatch } = useContext(Tasking);
   return (
-    <div>
-      <section>
-        {isDone ? <s>{todo}</s> : <div>{todo}</div>}
+    <Draggable draggableId={id.toString()} index={index}>
+      {(provided) => (
+        <div
+          className="bg-yellow-400 my-3 rounded-lg flex justify-evenly p-5"
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <section>{isDone ? <s>{todo}</s> : <div>{todo}</div>}</section>
 
-        <div>{isDone}</div>
-        <div className="buttons">
-          <button
-            className="btn"
-            onClick={() => {
-              dispatch({ type: 'DELETE_TASK', payload: id });
-            }}
-          >
-            Delete
-          </button>
-          <button
-            className="btn"
-            onClick={() => {
-              dispatch({ type: 'TASK_DONE', payload: id });
-            }}
-          >
-            Done
-          </button>
+          <section>
+            <button
+              className="bg-red-500 mx-[.5em] px-[.5em]"
+              onClick={() => {
+                dispatch({ type: 'DELETE_TASK', payload: id });
+              }}
+            >
+              Delete
+            </button>
+            <button
+              className="bg-green-600 px-[.5em]"
+              onClick={() => {
+                dispatch({ type: 'TASK_DONE', payload: id });
+              }}
+            >
+              Done
+            </button>
+          </section>
         </div>
-      </section>
-    </div>
+      )}
+    </Draggable>
   );
 };
 
