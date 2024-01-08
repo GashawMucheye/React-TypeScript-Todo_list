@@ -9,8 +9,12 @@ npx tailwindcss init -p
 
 2. creating components:
 
-   - InputFields
-   - SingleTodo
+   - Header
+   - Main
+   - Footer
+
+   * InputFields
+   * SingleTodo
 
 3. using useContext in order to create global state
 
