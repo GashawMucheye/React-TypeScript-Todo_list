@@ -17,7 +17,7 @@ const SingleTodo: FC<TypeSingleTodo> = ({ todo, id, isDone, index }) => {
     <Draggable draggableId={id.toString()} index={index}>
       {(provided) => (
         <div
-          className="bg-yellow-200 my-3 rounded-lg grid gap-6 py-5 md:grid-cols-2 md:items-center hover:bg-blue-300 hover:text-blue-100 border-dashed border-2 border-sky-500 drop-shadow-lg"
+          className="bg-orange-400 my-3 rounded-lg grid gap-6 py-5 md:grid-cols-2 md:items-center hover:b-100 hover:bg-gradient-to-r from-purple-500 to-pink-500 border-dashed border-2 border-sky-500 drop-shadow-lg"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}

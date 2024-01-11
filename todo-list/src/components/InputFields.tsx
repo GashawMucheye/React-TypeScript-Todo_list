@@ -1,9 +1,14 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, useEffect, useRef } from 'react';
 import { Tasking } from '../context/TaskProvider';
 import { Props } from '../types/types';
 
 const InputFields: FC<Props> = ({ todo, setTodo }) => {
   const { dispatch } = useContext(Tasking);
+  const inputElement = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    inputElement.current?.focus();
+  }, [todo]);
+
   const handleAdd = () => {
     dispatch({
       type: 'ADD_TASK',
@@ -11,10 +16,12 @@ const InputFields: FC<Props> = ({ todo, setTodo }) => {
     });
     setTodo('');
   };
+
   return (
-    <div className="mx-auto max-w-[1000px] p-5 mt-9">
+    <div className="mx-auto max-w-[1000px] p-5 mt-24">
       <input
         className="w-[90%] text-center rounded-lg"
+        ref={inputElement}
         value={todo}
         type="text"
         placeholder="Enter Your Task Here"
