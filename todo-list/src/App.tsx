@@ -25,7 +25,7 @@ const App = () => {
     <DragDropContext onDragEnd={onDragEnd}>
       <div
         className="h-screen text-center flex bg-[#b2a7a7] 
-  flex-col"
+  flex-col font-sans hover:font-serif relative"
       >
         <Header />
         <Main />

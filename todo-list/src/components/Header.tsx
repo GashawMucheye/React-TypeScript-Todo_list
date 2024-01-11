@@ -1,10 +1,8 @@
 import { FC } from 'react';
 const Header: FC = () => {
   return (
-    <header className="bg-[#2c6bb8] text-center p-5">
-      <h1 className="bg-red-400 mx-auto w-[1000px] p-5 text-4xl font-bold">
-        Todo List
-      </h1>
+    <header className="bg-blue-400 p-5 text-center hover:text-white fixed top-0 left-0 right-0 z-10 ">
+      <h2> Todo List</h2>
     </header>
   );
 };

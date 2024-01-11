@@ -1,10 +1,6 @@
 import { FC, useContext } from 'react';
 import { Tasking } from '../context/TaskProvider';
-
-type Props = {
-  todo: string;
-  setTodo: React.Dispatch<React.SetStateAction<string>>;
-};
+import { Props } from '../types/types';
 
 const InputFields: FC<Props> = ({ todo, setTodo }) => {
   const { dispatch } = useContext(Tasking);
@@ -13,11 +9,13 @@ const InputFields: FC<Props> = ({ todo, setTodo }) => {
       type: 'ADD_TASK',
       payload: { id: Date.now(), todo, isDone: false },
     });
+    setTodo('');
   };
   return (
-    <div className="bg-blue-950 mx-auto w-[1000px] p-5">
+    <div className="mx-auto max-w-[1000px] p-5 mt-9">
       <input
         className="w-[90%] text-center rounded-lg"
+        value={todo}
         type="text"
         placeholder="Enter Your Task Here"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -25,7 +23,7 @@ const InputFields: FC<Props> = ({ todo, setTodo }) => {
         }
       />
       <button
-        className="text-center bg-blue-600 px-[12px] rounded-full"
+        className="text-center bg-blue-600 px-[12px] rounded-full mt-2"
         onClick={handleAdd}
       >
         Add
