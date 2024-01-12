@@ -2,6 +2,8 @@ import { FC, useContext } from 'react';
 import { Tasking } from '../context/TaskProvider';
 import { Draggable } from 'react-beautiful-dnd';
 import { TypeSingleTodo } from '../types/types';
+import { MdDelete, MdDone } from 'react-icons/md';
+
 const SingleTodo: FC<TypeSingleTodo> = ({ todo, id, isDone, index }) => {
   const { dispatch } = useContext(Tasking);
   //handle delete
@@ -29,13 +31,13 @@ const SingleTodo: FC<TypeSingleTodo> = ({ todo, id, isDone, index }) => {
               className="bg-red-500 text-center m-2 p-1 rounded-md"
               onClick={handleDelete}
             >
-              Delete
+              <MdDelete />
             </button>
             <button
               className="bg-green-600 text-center m-2 p-1 rounded-md"
               onClick={handleDone}
             >
-              Done
+              <MdDone />
             </button>
           </section>
         </div>

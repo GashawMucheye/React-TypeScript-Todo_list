@@ -20,14 +20,14 @@ npx tailwindcss init -p
 
 4. using useReducer to manage states
 
-5. install react-toastify
-
-```js
-npm i react-toastify
-```
-
-6. install react-beautiful-dnd and @types/react-beautiful-dnd in order to drag and drop.
+5. install react-beautiful-dnd and @types/react-beautiful-dnd in order to drag and drop.
 
 ```js
 npm i react-beautiful-dnd @types/react-beautiful-dnd
+```
+
+6. install react-icons
+
+```js
+npm i react-icons
 ```

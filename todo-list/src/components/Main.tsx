@@ -10,7 +10,7 @@ const Main: FC = () => {
   const { tasks } = state;
 
   return (
-    <main className="py-5  flex-1 bg-[#333] ">
+    <main className="py-5  flex-1 bg-[#333]">
       <InputFields todo={todo} setTodo={setTodo} />
       <Droppable droppableId="TodosList">
         {(provided) => (
