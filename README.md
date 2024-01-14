@@ -1,5 +1,7 @@
 # Todolist with React by Using TypeScript
 
+![Alt text](<Screenshot 2024-01-14 130442-1.png>)
+
 1. install Tailwind css
 
 ```js
